@@ -4,7 +4,7 @@ const fs = require("fs");
 const exec = require("child_process").exec;
 const bodyParser = require("body-parser");
 const app = express();
-app.listen(3000);
+app.listen(process.env.NODE_ENV || 3000);
 
 app.set("view engine", "ejs");
 
