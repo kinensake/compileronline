@@ -17,7 +17,7 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
   content = req.body.content;
-  let file_name = randstr.generate(8);
+  let file_name = randstr.generate(4);
 
   fs.mkdirSync(`./tmp/${file_name}`);
   fs.writeFileSync(`./tmp/${file_name}/${file_name}.cpp`, content);
