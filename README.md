@@ -2,8 +2,8 @@
 This tool is used to compile your code (C/C++, javascript,...) in web browsers.
 
 ## Supported Propraming Language
-- C/C++
-- In the future: javascript, python, java,...
+- C/C++, Javascript.
+- In the future: python, java,...
 
 ## Installation
 1. Download and extract source code
