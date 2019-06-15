@@ -1,13 +1,14 @@
 let btn = document.getElementById("run");
 let code = document.getElementById("code");
 let result = document.getElementById("result");
+let lang = document.getElementById("lang");
 
 btn.addEventListener("click",function(){
   if(code.value.trim() == ""){
     return alert("Please type your code");
   }
 
-  axios.post("/", `content=${code.value}`)
+  axios.post("/", `content=${code.value}&lang=${lang.value}`)
   .then(function(kq){
     console.log(kq);
     let a = kq.request.responseText;

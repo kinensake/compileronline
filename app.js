@@ -17,21 +17,33 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
   content = req.body.content;
+  lang = req.body.lang;
+
   let file_name = randstr.generate(4);
 
   fs.mkdirSync(`./tmp/${file_name}`);
-  fs.writeFileSync(`./tmp/${file_name}/${file_name}.cpp`, content);
+  let command;
 
-  let command = `g++ tmp/${file_name}/${file_name}.cpp -o tmp/${file_name}/${file_name} ; ./tmp/${file_name}/${file_name}`;
+  switch(lang.toLowerCase()){
+    case "javascript":
+      fs.writeFileSync(`./tmp/${file_name}/${file_name}.js`, content);
+      command = `node tmp/${file_name}/${file_name}`;
+      break;
+
+    default:
+      fs.writeFileSync(`./tmp/${file_name}/${file_name}.cpp`, content);
+      command = `g++ tmp/${file_name}/${file_name}.cpp \
+                    -o tmp/${file_name}/${file_name} ; \
+                    ./tmp/${file_name}/${file_name}`;
+  }
+
   exec(command, function(err, stdout, stderr){
 
     if(err) res.status(200).json({kq: stderr});
-    else{
-      fs.unlinkSync(`./tmp/${file_name}/${file_name}`);
-      res.status(200).json({kq: stdout});
-    }
+    else res.status(200).json({kq: stdout});
 
-    fs.unlinkSync(`./tmp/${file_name}/${file_name}.cpp`);
-    fs.rmdirSync(`./tmp/${file_name}`);
+    exec(`rm -rf tmp/${file_name}`, function(err, stdout, stderr){
+    	//Nothing here
+    });
   });
 })
