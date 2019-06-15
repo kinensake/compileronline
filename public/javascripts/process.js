@@ -3,18 +3,25 @@ let code = document.getElementById("code");
 let result = document.getElementById("result");
 let lang = document.getElementById("lang");
 
-lang.addEventListener("change", function(){
-  switch(lang.value.toLowerCase()){
-    case "javascript":
-      code.innerHTML = 'console.log("Hello World")';
-      break;
-    default:
-      code.innerHTML = '#include &lt;iostream&gt; \
+code.value = '#include <iostream> \
       \nusing namespace std; \
       \n\nint main(){ \
         \n\tcout << "Hello, World!"; \
-        \n\t<br>return 0; \
-      \n}'
+        \n\treturn 0; \
+      \n}';
+
+lang.addEventListener("change", function(){
+  switch(lang.value.toLowerCase()){
+    case "javascript":
+      code.value = 'console.log("Hello World")';
+      break;
+    default:
+      code.value = '#include <iostream> \
+      \nusing namespace std; \
+      \n\nint main(){ \
+        \n\tcout << "Hello, World!"; \
+        \n\treturn 0; \
+      \n}';
   }
 })
 
