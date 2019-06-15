@@ -3,6 +3,21 @@ let code = document.getElementById("code");
 let result = document.getElementById("result");
 let lang = document.getElementById("lang");
 
+lang.addEventListener("change", function(){
+  switch(lang.value.toLowerCase()){
+    case "javascript":
+      code.innerHTML = 'console.log("Hello World")';
+      break;
+    default:
+      code.innerHTML = '#include &lt;iostream&gt; \
+      \nusing namespace std; \
+      \n\nint main(){ \
+        \n\tcout << "Hello, World!"; \
+        \n\t<br>return 0; \
+      \n}'
+  }
+})
+
 btn.addEventListener("click",function(){
   if(code.value.trim() == ""){
     return alert("Please type your code");
