@@ -74,7 +74,7 @@ function addHighlight(content) {
 	});
 	
 	content = content.replace(/(?<=\w+\.)\w+/g, function(str) {
-		return "<span class=object>" + str + "</span>";
+		return "<span class=method>" + str + "</span>";
 	});
 	
 	content = content.replace(/(".*")|('.*')|(`.*`)/g, function(str) {
