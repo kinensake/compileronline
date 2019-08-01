@@ -8,8 +8,8 @@ let cExample =
 `#include <iostream>
 
 int main() {
-	std::cout << "Hello World";
-	return 0;
+ std::cout << "Hello World";
+ return 0;
 }
 `;
 
@@ -23,6 +23,7 @@ board.addEventListener("keydown", function(){
 	}, 0);
 });
 
+//chang language
 lang.addEventListener("change", function(){
   switch(lang.value.toLowerCase()){
     case "javascript":
@@ -35,6 +36,7 @@ lang.addEventListener("change", function(){
   }
 });
 
+//post code to server
 btn.addEventListener("click",function(){
   if(board.value.trim() == ""){
     return alert("Please type your code");
@@ -50,6 +52,7 @@ btn.addEventListener("click",function(){
   });
 });
 
+//functions 
 
 function changeColor(content) {
 	const keyword = ["function", "var", "let", "const", "new", "class", "for", 
