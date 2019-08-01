@@ -14,12 +14,12 @@ int main() {
 `;
 
 board.value = cExample;
-dummy.innerHTML = changeColor(board.value);
+dummy.innerHTML = addHighlight(board.value);
 
-//change color keyword
+//add highlight keyword
 board.addEventListener("keydown", function(){
 	setTimeout(function(){
-		dummy.innerHTML = changeColor(board.value);
+		dummy.innerHTML = addHighlight(board.value);
 	}, 0);
 });
 
@@ -28,11 +28,11 @@ lang.addEventListener("change", function(){
   switch(lang.value.toLowerCase()){
     case "javascript":
       board.value = `console.log("hello world")`;
-			dummy.innerHTML = changeColor(board.value);
+			dummy.innerHTML = addHighlight(board.value);
       break;
     default:
       board.value = cExample;
-			dummy.innerHTML = changeColor(board.value);
+			dummy.innerHTML = addHighlight(board.value);
   }
 });
 
@@ -54,7 +54,7 @@ btn.addEventListener("click",function(){
 
 //functions 
 
-function changeColor(content) {
+function addHighlight(content) {
 	const keyword = ["function", "var", "let", "const", "new", "class", "for", 
 									 "return", "switch", "if", "for", "else", "while", "do", "case", 
 									 "default", "int", "string", "float", "double", "long", "short",
