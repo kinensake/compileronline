@@ -1,16 +1,35 @@
-#code{
-  width: 70%;
+.container {
+	width: 70%;
   height: 400px;
-  background: #282e38;
-  color: white;
-  font-size: 17px;
-  color: #00ff41;
-  outline: none;
-  padding: 10px;
-  box-sizing: border-box;
+	position: relative;
+	display: inline-block;
 }
 
-#result{
+.code {
+	width: 100%;
+  height: 400px;
+  color: white;
+  font-size: 17px;
+  outline: none;
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+	top: 0;
+	font-family: monospace;
+}
+
+#board {
+	background: transparent;
+	color: transparent;
+	z-index: 11;
+	caret-color: white;
+}
+
+#dummy {
+	background: #0e1114;
+}
+
+#result {
   width: 70%;
   height: 200px;
   background: black;
@@ -19,15 +38,31 @@
   padding: 10px;
 }
 
-#run{
+#run {
   vertical-align: top;
   width: 100px;
   height: 40px;
   font-size: 20px;
 }
 
-#lang{
+#lang {
   vertical-align: top;
   height: 40px;
   font-size: 20px;
+}
+
+.keyword {
+	color: #449ce3;
+}
+
+.number {
+	color: #03fc62;
+}
+
+.string {
+	color: #f22439;
+}
+
+.object {
+	color: #f79c25;
 }

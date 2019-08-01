@@ -8,6 +8,7 @@ app.listen(process.env.NODE_ENV || 3000);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 app.get("/", function(req, res){
@@ -45,4 +46,4 @@ app.post("/", function(req, res){
     	//Nothing here
     });
   });
-})
+});
